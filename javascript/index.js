@@ -20,6 +20,17 @@ function updateTime() {
       "h:mm:ss [<small>] A [</small>]"
     );
   }
+
+  let limaElement = document.querySelector("#lima");
+  if (limaElement) {
+    let limaDateElement = limaElement.querySelector(".date");
+    let limaTimeElement = limaElement.querySelector(".time");
+    let limaTime = moment().tz("America/Lima");
+    limaDateElement.innerHTML = limaTime.format("MMMM Do YYYY");
+    limaTimeElement.innerHTML = limaTime.format(
+      "h:mm:ss [<small>] A [</small>]"
+    );
+  }
 }
 updateTime();
 setInterval(updateTime, 1000);
